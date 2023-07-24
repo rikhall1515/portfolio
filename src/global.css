@@ -1,27 +1,58 @@
-/**
- * Tailwind CSS imports
- * View the full documentation at https://tailwindcss.com
- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
+@layer base {
+  h1 {
+    @apply text-[4rem];
+    @apply w-[30ch];
+    @apply font-normal;
+  }
+  h2 {
+    @apply text-[2rem];
+    @apply mb-16;
+    @apply font-bold;
+  }
+  h3 {
+    @apply text-[1.5rem];
+    @apply font-bold;
+  }
+  p {
+    @apply text-[1.25rem];
+  }
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 300;
+  src: url("/fonts/Poppins-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 400;
+  src: url("/fonts/Poppins-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 500;
+  src: url("/fonts/Poppins-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 700;
+  src: url("/fonts/Poppins-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 400;
+  src: url("/fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");
+}
 
 :root {
-  --qwik-dark-blue: #006ce9;
-  --qwik-light-blue: #18b6f6;
-  --qwik-light-purple: #ac7ff4;
-  --qwik-dark-purple: #713fc2;
-  --qwik-dirty-black: #1d2033;
-  --qwik-dark-background: #151934;
-  --qwik-dark-text: #ffffff;
 }
 
 html {
@@ -30,35 +61,11 @@ html {
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
-}
-
-body {
-  padding: 0;
-  margin: 0;
-  line-height: inherit;
-}
-
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
-html {
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: "Poppins", sans-serif;
 }
 
 body {
   padding: 0;
   line-height: inherit;
+  margin: auto;
 }
