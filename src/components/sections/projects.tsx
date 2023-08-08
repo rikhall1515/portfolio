@@ -10,6 +10,8 @@ export default component$(() => {
             <article class="rounded-lg" aria-label="Project name, App type">
               <figure>
                 <img
+                  width="500"
+                  height="500"
                   class="rounded-t-lg rounded-r-lg"
                   alt="How the end-result of the project looks."
                 />

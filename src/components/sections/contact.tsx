@@ -8,9 +8,11 @@ export default component$(() => {
         <section class="w-[60ch]" aria-label="About me">
           <h2>About</h2>
           <img
+            width="500"
+            height="500"
             class="mb-6"
             alt="A picture of me in business casual attire, out in nature."
-          ></img>
+          />
           <ul class="font-bold text-[1.25rem] leading-[1.25rem] flex flex-wrap gap-6 mb-6">
             <li class="inline">Fullstack Developer</li>
             <li class="inline">Sweden, Västmanland</li>
