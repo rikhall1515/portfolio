@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import Button, { ButtonVariant } from "~/components/button";
 export default component$(() => {
   return (
     <header class="py-8 fixed top-0 left-0 w-full bg-white">
@@ -55,9 +56,12 @@ export default component$(() => {
               </a>
             </li>
             <li class="ml-6">
-              <a class="font-bold" href="/Rikard_Hallberg_CV.pdf">
-                Resume
-              </a>
+              <Button
+                Icon={false}
+                text="Resumé"
+                href="/Rikard_Hallberg_CV.pdf"
+                variant={ButtonVariant.Outlined}
+              />
             </li>
           </ul>
         </nav>

@@ -70,7 +70,7 @@
 
 .button:hover svg,
 .button:focus svg {
-  @apply transition-[width]
+  @apply transition-[width];
   @apply w-0;
 }
 
