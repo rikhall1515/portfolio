@@ -55,6 +55,25 @@
 :root {
 }
 
+.button {
+  @apply relative;
+}
+
+/*Prevents button flicker when hovering at the right edge.*/
+.button:hover::after {
+  @apply content-[''];
+  @apply absolute;
+  @apply left-0;
+  @apply w-[120%];
+  @apply h-full;
+}
+
+.button:hover svg,
+.button:focus svg {
+  @apply transition-[width]
+  @apply w-0;
+}
+
 html {
   line-height: 1;
   -webkit-text-size-adjust: 100%;
