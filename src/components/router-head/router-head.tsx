@@ -32,6 +32,34 @@ export const RouterHead = component$(() => {
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#4410BF" />
       <meta name="theme-color" content="#4410BF" />
+      <link
+        rel="preload"
+        href="/fonts/Poppins-Bold.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/fonts/Poppins-Regular.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/fonts/Poppins-Medium.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/fonts/AtkinsonHyperlegible-Regular.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
 
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />

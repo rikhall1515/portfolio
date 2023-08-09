@@ -24,32 +24,42 @@
 
 @font-face {
   font-family: "Poppins";
+  font-style: normal;
   font-weight: 300;
   src: url("/fonts/Poppins-Light.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Poppins";
+  font-style: normal;
   font-weight: 400;
   src: url("/fonts/Poppins-Regular.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Poppins";
+  font-style: normal;
   font-weight: 500;
   src: url("/fonts/Poppins-Medium.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Poppins";
+  font-style: normal;
   font-weight: 700;
   src: url("/fonts/Poppins-Bold.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Atkinson Hyperlegible";
+  font-style: normal;
   font-weight: 400;
   src: url("/fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");
+  font-display: swap;
 }
 
 :root {
