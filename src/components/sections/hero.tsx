@@ -4,22 +4,32 @@ import Link from "~/components/link";
 export default component$(() => {
   return (
     <section
-      class="pt-[16rem] pb-32"
+      class="py-[--section-y-spacing] relative overflow-x-hidden overflow-y-visible"
       id="introduction"
       aria-label="Introducing me"
     >
-      <div class=" max-w-[120rem] m-auto px-32">
-        <div class="flex flex-col gap-8 mb-16">
+      <div
+        class="block w-[110%] h-[calc(100% + 10rem)]
+               bg-gradient-to-b from-secondary_400 to-secondary_900
+               absolute top-0 translate-x-[-50%] left-[50%] bottom-0 z-[-4]"
+      ></div>
+      <div class="max-w-[120rem] m-auto page-outer-spacing">
+        <div class="flex flex-col gap-2 mb-[--subsection-y-spacing]">
           <h1
-            class="flex flex-col gap-4"
-            aria-label="I'm Rikard Hallberg, Fullstack Developer, Obsessed with performance and accessibility."
+            class="flex flex-col gap-[0.625rem]"
+            aria-label="I'm Rikard Hallberg, Fullstack Developer, dedicated to performance and accessibility."
           >
-            <span class="font-bold text-[1.5rem]">I'm Rikard Hallberg</span>
+            <span class="font-bold text-[1.125rem] lg:text-[1.5rem]">
+              I'm Rikard Hallberg
+            </span>
             <span>Fullstack developer dedicated to performance and UI/UX.</span>
           </h1>
-          <p class="font-regular text-[2rem]">
+          <p class="font-regular text-[1.25rem] lg:text-[2rem]">
             Computer science graduate from{" "}
-            <Link text="MDU" href="https://mdu.se" />
+            <Link
+              text="MDU"
+              href="https://www.mdu.se/utbildning/program/datavetenskapliga-programmet"
+            />
           </p>
         </div>
         <Button

@@ -1,68 +1,99 @@
 import { component$ } from "@builder.io/qwik";
 import Button, { ButtonVariant } from "~/components/button";
 import Link from "~/components/link";
+import ImgMainLogo from "/public/mainLogo.svg?jsx";
 export default component$(() => {
   return (
-    <header class="py-8 fixed top-0 left-0 z-10 bg-secondary_400 w-full">
-      <div class="max-w-[120rem] m-auto px-32 flex justify-between">
-        <a href="#introduction" aria-label="Website logo, jumps to top of page">
-          <svg
-            class="w-11 h-11"
-            width="124.65"
-            height="111.2"
-            viewBox="0 0 32.980334 29.421684"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
+    <>
+      <div aria-hidden="true"></div>
+      <header class="w-full z-10 transition-[background-color,box-shadow] !pointer-events-auto !select-auto !filter-none">
+        <div
+          class="max-w-[120rem] 
+                  mx-auto page-outer-spacing py-8 mt-4
+                  flex justify-between items-center"
+        >
+          <a
+            class="z-30"
+            href="#introduction"
+            aria-label="Website logo, jumps to top of page"
           >
-            <g>
-              <g
-                style="font-size:42.1035px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:Poppins;text-align:center;text-anchor:middle;stroke-width:2.10517"
-                transform="translate(29.165848,-189.62234)"
-              >
-                <path
-                  d="m -14.004416,219.03571 -6.483939,-11.45216 h -2.778831 v 11.45216 h -5.89449 v -29.38825 h 11.031117 q 3.410384,0 5.810283,1.221 2.3998998,1.1789 3.5787978,3.24197 1.2210015,2.02097 1.2210015,4.54718 0,2.90514 -1.68414,5.26294 -1.6841403,2.31569 -5.0103163,3.19986 l 7.0312843,11.9153 z m -9.26277,-15.87302 h 4.92611 q 2.399899,0 3.578797,-1.1368 1.178898,-1.1789 1.178898,-3.24197 0,-2.02097 -1.178898,-3.11566 -1.178898,-1.13679 -3.578797,-1.13679 h -4.92611 z"
-                  style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:Poppins;-inkscape-font-specification:'Poppins Semi-Bold';stroke-width:2.10517"
+            <ImgMainLogo alt="Website logo" />
+          </a>
+          <nav
+            class="hidden lg:block items-center z-20"
+            aria-label="In-page jump links"
+          >
+            <ul class="text-[1.25rem] flex items-center font-medium">
+              <li>
+                <Link text="Projects" href="#projects" isNav={true} />
+              </li>
+              <li class="ml-6 font-medium">
+                <Link text="Contact" href="#contact" isNav={true} />
+              </li>
+              <li class="ml-6">
+                <Button
+                  Icon={false}
+                  text="Resumé"
+                  href="/Rikard_Hallberg_CV.pdf"
+                  variant={ButtonVariant.Outlined}
                 />
-              </g>
-              <path
-                style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-                d="m 32.972278,29.413366 h -6.27342 l -7.03129,-11.915302 h 6.82077 z"
-              />
-              <path
-                style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.216485px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-                d="m 27.593818,21.33254 -2.26848,4.573096 -11.47216,0.10627 2.82801,-4.768845 z"
-              />
-              <g
-                style="font-size:42.1035px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:Poppins;text-align:center;text-anchor:middle;stroke-width:2.10517"
-                transform="translate(29.165848,-189.62234)"
+              </li>
+            </ul>
+          </nav>
+          <div class="block lg:hidden">
+            <button
+              aria-expanded={false}
+              aria-label="Open menu"
+              class="z-30 relative"
+            >
+              <svg
+                class="w-12 h-12"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
               >
-                <path
-                  d="m -14.004416,219.03571 -6.483939,-11.45216 h -2.778831 v 11.45216 h -5.89449 v -29.38825 h 11.031117 q 3.410384,0 5.810283,1.221 2.3998998,1.1789 3.5787978,3.24197 1.2210015,2.02097 1.2210015,4.54718 0,2.90514 -1.68414,5.26294 -1.6841403,2.31569 -5.0103163,3.19986 l 7.0312843,11.9153 z m -9.26277,-15.87302 h 4.92611 q 2.399899,0 3.578797,-1.1368 1.178898,-1.1789 1.178898,-3.24197 0,-2.02097 -1.178898,-3.11566 -1.178898,-1.13679 -3.578797,-1.13679 h -4.92611 z"
-                  style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:Poppins;-inkscape-font-specification:'Poppins Semi-Bold';stroke-width:2.10517"
-                />
-              </g>
-            </g>
-          </svg>
-        </a>
-        <nav class="flex items-center" aria-label="In-page jump links">
-          <ul class="text-[1.25rem] flex items-center font-medium">
-            <li>
-              <Link text="Projects" href="#projects" isNav={true} />
-            </li>
-            <li class="ml-6 font-medium">
-              <Link text="Contact" href="#contact" isNav={true} />
-            </li>
-            <li class="ml-6">
-              <Button
-                Icon={false}
-                text="Resumé"
-                href="/Rikard_Hallberg_CV.pdf"
-                variant={ButtonVariant.Outlined}
-              />
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+                <rect width="24" height="6" rx="1.5" fill="#EEEAF9" />
+                <rect y="9" width="24" height="6" rx="1.5" fill="#EEEAF9" />
+                <rect y="18" width="24" height="6" rx="1.5" fill="#EEEAF9" />
+              </svg>
+            </button>
+            <aside
+              class={[
+                "fixed top-0 bottom-0 right-0 z-[20] ",
+                "p-32 ",
+                "w-[100vw] m:w-[70vw] h-[100vh] ",
+                "flex justify-center items-center ",
+                "outline-none ",
+                "bg-secondary_900 ",
+                "translate-x-[100vw] visible-[hidden]",
+              ].join(" ")}
+              aria-label="In-page jump links"
+              aria-hidden={true}
+              tabIndex={-1}
+            >
+              <nav aria-label="In-page jump links" id="sidebarNav">
+                <ul class="text-[1.25rem] font-medium flex flex-col justify-center items-center gap-6">
+                  <li class="w-fit" id="projectsLink">
+                    <Link text="Projects" href="#projects" isNav={false} />
+                  </li>
+                  <li class="w-fit" id="contactLink">
+                    <Link text="Contact" href="#contact" isNav={false} />
+                  </li>
+                  <li class="w-fit">
+                    <Button
+                      Icon={false}
+                      text="Resume"
+                      variant={ButtonVariant.Outlined}
+                      href="/Rikard_Hallberg_CV.pdf"
+                    />
+                  </li>
+                </ul>
+              </nav>
+            </aside>
+          </div>
+        </div>
+      </header>
+    </>
   );
 });

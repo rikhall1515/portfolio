@@ -27,12 +27,15 @@ export default component$(() => {
     <>
       <a
         href="#content"
-        class="absolute left-0 top-0 block -translate-y-full rounded bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 px-4 py-3 text-sm font-bold uppercase tracking-widest text-white focus-visible:translate-y-0"
+        class="absolute left-0 top-0 block -translate-y-[200%] 
+               rounded bg-gradient-to-b from-primary to-primaryDarker 
+               px-4 py-3 
+               text-sm font-bold uppercase tracking-widest text-white focus-visible:translate-y-0"
       >
         Skip to Content
       </a>
       <Header />
-      <main id="content">
+      <main class="transition-all" id="content">
         <Slot />
       </main>
       <Footer />
