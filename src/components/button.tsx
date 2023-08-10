@@ -1,4 +1,12 @@
-import { Slot, component$ } from "@builder.io/qwik";
+import {
+  Slot,
+  component$,
+  useContext,
+  type QwikKeyboardEvent,
+  $,
+} from "@builder.io/qwik";
+import { MenuContext } from "~/root";
+import { mainMenuBtnContext } from "~/routes/layout";
 
 export enum ButtonVariant {
   Fill,
@@ -13,6 +21,7 @@ interface ButtonProps {
   href: string;
   font_style?: string;
   fill_container?: boolean;
+  isNavSidebar?: boolean;
 }
 
 const commonStyles = [
@@ -74,12 +83,36 @@ export default component$<ButtonProps>(
     href,
     font_style = "font-bold",
     fill_container = false,
+    isNavSidebar = false,
   }) => {
+    const sidebarMenuExpanded = useContext(MenuContext);
+    const mainMenuRef = useContext(mainMenuBtnContext);
     //The buttons in the contact section should fill the container after the md breakpoint
     const ContactSectionFlag = fill_container
       ? "w-full md:w-[11.25rem] "
       : "w-full sm:w-[15rem]";
     const hasIcon = Icon ? "button" : ""; //Check global.css
+    let attrs = {};
+    if (isNavSidebar) {
+      attrs = {
+        ...attrs,
+        rel: "noopener noreferrer",
+        target: "_blank",
+        tabIndex: sidebarMenuExpanded.value ? 0 : -1,
+        "preventdefault:keydown": true,
+        onKeyDown$: $(
+          (e: QwikKeyboardEvent<HTMLAnchorElement>) =>
+            e.which == 9 && mainMenuRef.value.focus()
+        ),
+      };
+    } else {
+      attrs = {
+        ...attrs,
+        rel: "noopener noreferrer",
+        target: "_blank",
+      };
+    }
+
     return (
       <a
         href={href}
@@ -89,8 +122,7 @@ export default component$<ButtonProps>(
           ContactSectionFlag,
           hasIcon,
         ].join(" ")}
-        rel="noopener noreferrer"
-        target="_blank"
+        {...attrs}
       >
         <Slot name="Icon" />
         <span>{text}</span>

@@ -1,8 +1,10 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContext, $ } from "@builder.io/qwik";
+import { MenuContext } from "~/root";
 interface LinkProps {
   text: string;
   href: string;
   isNav?: boolean;
+  isNavSidebar?: boolean;
 }
 const commonStyles = [
   "inline-block relative",
@@ -19,18 +21,31 @@ function getLinkStyles(isNav: boolean) {
   return ["text-primary", commonStyles].join(" ");
 }
 
-export default component$<LinkProps>(({ text, href, isNav = false }) => {
-  let attrs = {};
-  if (!isNav) {
-    attrs = {
-      ...attrs,
-      rel: "noopener noreferrer",
-      target: "_blank",
-    };
+export default component$<LinkProps>(
+  ({ text, href, isNav = false, isNavSidebar = false }) => {
+    const sidebarMenuExpanded = useContext(MenuContext);
+    const toggle = $(
+      () => (sidebarMenuExpanded.value = !sidebarMenuExpanded.value)
+    );
+    let attrs = {};
+    if (!isNav && !isNavSidebar) {
+      attrs = {
+        ...attrs,
+        rel: "noopener noreferrer",
+        target: "_blank",
+      };
+    }
+    if (isNavSidebar) {
+      attrs = {
+        ...attrs,
+        onClick$: toggle,
+        tabIndex: sidebarMenuExpanded.value ? 0 : -1,
+      };
+    }
+    return (
+      <a class={getLinkStyles(isNav)} href={href} {...attrs}>
+        {text}
+      </a>
+    );
   }
-  return (
-    <a class={getLinkStyles(isNav)} href={href} {...attrs}>
-      {text}
-    </a>
-  );
-});
+);

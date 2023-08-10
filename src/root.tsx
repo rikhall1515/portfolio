@@ -1,12 +1,21 @@
-import { component$, useStyles$ } from "@builder.io/qwik";
+import {
+  component$,
+  useStyles$,
+  useTask$,
+  type Signal,
+  useContextProvider,
+  useSignal,
+  createContextId,
+} from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
-
 import styles from "./global.css?inline";
+
+export const MenuContext = createContextId<Signal<boolean>>("menuState");
 
 export default component$(() => {
   /**
@@ -15,7 +24,12 @@ export default component$(() => {
    *
    * Dont remove the `<head>` and `<body>` elements.
    */
+  const sidebarMenuExpanded = useSignal(false);
+  useContextProvider(MenuContext, sidebarMenuExpanded);
   useStyles$(styles);
+  useTask$(({ track }) => {
+    track(() => sidebarMenuExpanded.value);
+  });
   return (
     <QwikCityProvider>
       <head>
@@ -23,7 +37,14 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.webmanifest" />
         <RouterHead />
       </head>
-      <body lang="en" class="relative bg-secondary_400">
+      <body
+        lang="en"
+        class={
+          sidebarMenuExpanded.value
+            ? "customBlur overflow-hidden relative bg-secondary_400"
+            : "relative bg-secondary_400"
+        }
+      >
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
