@@ -26,7 +26,10 @@ export default component$(() => {
           </h1>
           <p class="font-regular text-[1.25rem] lg:text-[2rem]">
             Computer science graduate from{" "}
-            <Link text="MDU" href="https://mdu.se" />
+            <Link
+              text="MDU"
+              href="https://www.mdu.se/utbildning/program/datavetenskapliga-programmet"
+            />
           </p>
         </div>
         <Button
