@@ -77,7 +77,7 @@ export default component$<ButtonProps>(
   }) => {
     //The buttons in the contact section should fill the container after the md breakpoint
     const ContactSectionFlag = fill_container
-      ? "w-full md:w-fit "
+      ? "w-full md:w-[11.25rem] "
       : "w-full sm:w-[15rem]";
     const hasIcon = Icon ? "button" : ""; //Check global.css
     return (
