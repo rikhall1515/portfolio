@@ -29,7 +29,6 @@ export default component$(() => {
           href="mailto:r15.hallberg@gmail.com"
         >
           <svg
-            class="fill-[inherit] overflow-visible transition-all relative"
             width="36"
             height="24"
             viewBox="0 0 36 24"

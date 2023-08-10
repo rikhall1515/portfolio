@@ -65,22 +65,34 @@
 :root {
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  button {
+    @apply transition-all;
+  }
+  a::after {
+    @apply transition-all;
+  }
+  .scale-when-no-pref {
+    @apply hover:scale-105 focus:scale-105;
+  }
+  .button svg {
+    @apply transition-[width];
+  }
+}
+
 .button {
   @apply relative;
 }
 
-/*Prevents button flicker when hovering at the right edge.*/
-.button:hover::after {
-  @apply content-[''];
-  @apply absolute;
-  @apply left-0;
-  @apply w-[120%];
-  @apply h-full;
+.button > svg {
+  @apply fill-[inherit] overflow-visible relative;
 }
+
+/*Prevents button flicker when hovering at the right edge.*/
 
 .button:hover svg,
 .button:focus svg {
-  @apply transition-[width];
   @apply w-0;
 }
 

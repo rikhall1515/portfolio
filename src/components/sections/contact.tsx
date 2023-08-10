@@ -37,7 +37,6 @@ export default component$(() => {
                 fill_container={true}
               >
                 <svg
-                  class="fill-[inherit] overflow-visible transition-all relative"
                   width="36"
                   height="24"
                   viewBox="0 0 36 24"
@@ -70,7 +69,7 @@ export default component$(() => {
                 fill_container={true}
               >
                 <svg
-                  class="h-6 w-6 ml-[-0.125rem] fill-[inherit] overflow-visible transition-all relative"
+                  class="h-6 w-6 ml-[-0.125rem]"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -89,7 +88,7 @@ export default component$(() => {
                 fill_container={true}
               >
                 <svg
-                  class="w-6 h-6 fill-[inherit] overflow-visible transition-all relative"
+                  class="w-6 h-6"
                   viewBox="0 0 98 96"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
