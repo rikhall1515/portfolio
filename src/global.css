@@ -24,35 +24,76 @@
 
 @font-face {
   font-family: "Poppins";
+  font-style: normal;
   font-weight: 300;
   src: url("/fonts/Poppins-Light.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Poppins";
+  font-style: normal;
   font-weight: 400;
   src: url("/fonts/Poppins-Regular.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Poppins";
+  font-style: normal;
   font-weight: 500;
   src: url("/fonts/Poppins-Medium.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Poppins";
+  font-style: normal;
   font-weight: 700;
   src: url("/fonts/Poppins-Bold.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Atkinson Hyperlegible";
+  font-style: normal;
   font-weight: 400;
   src: url("/fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");
+  font-display: swap;
 }
 
 :root {
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  button {
+    @apply transition-all;
+  }
+  a::after {
+    @apply transition-all;
+  }
+  .scale-when-no-pref {
+    @apply hover:scale-105 focus:scale-105;
+  }
+  .button svg {
+    @apply transition-[width];
+  }
+}
+
+.button {
+  @apply relative;
+}
+
+.button > svg {
+  @apply fill-[inherit] overflow-visible relative;
+}
+
+/*Prevents button flicker when hovering at the right edge.*/
+
+.button:hover svg,
+.button:focus svg {
+  @apply w-0;
 }
 
 html {

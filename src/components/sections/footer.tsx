@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import Link from "~/components/link";
 export default component$(() => {
   return (
     <footer class="py-32" aria-label="About the website">
@@ -6,9 +7,10 @@ export default component$(() => {
         <p class="font-atkinson w-[60ch]">
           This portfolio was meticulously designed with Figma and built using
           Next.js, and TailwindCSS.{" "}
-          <a href="https://github.com/rikhall1515">
-            Look at the portfolio GitHub.
-          </a>
+          <Link
+            text="Look at the portfolio GitHub"
+            href="https://github.com/rikhall1515"
+          />
         </p>
       </div>
     </footer>
