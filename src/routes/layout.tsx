@@ -1,9 +1,19 @@
-import { component$, Slot } from "@builder.io/qwik";
+import {
+  component$,
+  Slot,
+  useContext,
+  $,
+  createContextId,
+  type Signal,
+  useContextProvider,
+  useSignal,
+} from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import Footer from "~/components/sections/footer";
 
 import Header from "~/components/sections/header";
+import { MenuContext } from "~/root";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -16,6 +26,8 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
+export const mainMenuBtnContext =
+  createContextId<Signal<HTMLElement>>("mainBtn");
 export const useServerTimeLoader = routeLoader$(() => {
   return {
     date: new Date().toISOString(),
@@ -23,6 +35,14 @@ export const useServerTimeLoader = routeLoader$(() => {
 });
 
 export default component$(() => {
+  const emptyElm = useSignal<HTMLElement>();
+  const sidebarMenuExpanded = useContext(MenuContext);
+  const toggleIfBlurred = $(() => {
+    if (sidebarMenuExpanded.value) {
+      sidebarMenuExpanded.value = !sidebarMenuExpanded.value;
+    }
+  });
+  useContextProvider(mainMenuBtnContext, emptyElm);
   return (
     <>
       <a
@@ -35,7 +55,7 @@ export default component$(() => {
         Skip to Content
       </a>
       <Header />
-      <main class="transition-all" id="content">
+      <main id="content" class="transition-all" onClick$={toggleIfBlurred}>
         <Slot />
       </main>
       <Footer />
