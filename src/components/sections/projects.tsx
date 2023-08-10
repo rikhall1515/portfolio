@@ -64,7 +64,7 @@ export default component$(() => {
                         href="https://github.com"
                       >
                         <svg
-                          class="w-6 h-6 fill-[inherit] overflow-visible transition-all relative"
+                          class="w-6 h-6"
                           viewBox="0 0 98 96"
                           xmlns="http://www.w3.org/2000/svg"
                           aria-hidden="true"
