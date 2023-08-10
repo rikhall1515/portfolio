@@ -1,33 +1,30 @@
 import { component$ } from "@builder.io/qwik";
 import Button, { ButtonVariant } from "~/components/button";
+import ImgRikHallPhoto from "/public/rikardhallberg_photo.webp?jsx";
 export default component$(() => {
   //grid
   return (
-    <section class="pt-32" id="contact">
-      <div class="max-w-[120rem] m-auto px-32">
-        <section class="w-[60ch]" aria-label="About me">
-          <h2>About</h2>
-          <img
-            width="500"
-            height="500"
-            class="mb-6"
+    <section
+      class="pt-[--section-y-spacing] bg-gradient-to-b from-secondary_900 to-secondary_350"
+      id="contact"
+    >
+      <div class="max-w-[120rem] m-auto page-outer-spacing">
+        <section aria-label="About me">
+          <h2 class="mb-[--subsection-y-spacing]">Who am I?</h2>
+          <ImgRikHallPhoto
+            class="w-full sm:h-64 md:h-auto md:max-w-full lg:max-w-[40rem] rounded-lg object-cover mb-6"
             alt="A picture of me in business casual attire, out in nature."
           />
-          <ul class="font-bold text-[1.25rem] leading-[1.25rem] flex flex-wrap gap-6 mb-6">
-            <li class="inline">Fullstack Developer</li>
-            <li class="inline">Sweden, Västmanland</li>
-            <li class="inline">Desktop, web, and mobile</li>
-          </ul>
-          <p class="font-atkinson leading-normal w-[60ch]">
+          <p class="font-atkinson leading-normal max-w-[60ch]">
             Hi! My name is Rikard Hallberg. I love designing applications in
             Figma using UI/UX principles, and then implementing the designs with
             tested, blazingly fast code. I have a lot of ways I can improve, but
             my goal is to be the best.
           </p>
         </section>
-        <section class="mt-32" aria-label="Contact me">
-          <h2>Contact</h2>
-          <ul class="font-bold flex gap-6">
+        <section class="mt-[--section-y-spacing]" aria-label="Contact me">
+          <h2 class="mb-[--subsection-y-spacing]">Let's connect</h2>
+          <ul class="font-bold flex gap-6 flex-col md:flex-row">
             <li>
               <Button
                 Icon={true}

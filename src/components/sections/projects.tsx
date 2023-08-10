@@ -22,7 +22,7 @@ export default component$(() => {
           aria-label="Portfolio website"
         >
           <ImgThumbnail
-            class="max-w-[75rem] min-w-0"
+            class="max-w-full min-w-0"
             alt="How the end-result of the project looks."
           />
           <div class="flex flex-col gap-8 lg:min-w-[20rem] lg:place-self-end">
