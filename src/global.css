@@ -4,13 +4,16 @@
 
 @layer base {
   h1 {
-    @apply text-[4rem];
-    @apply w-[30ch];
+    @apply text-[2rem];
+    @apply md:text-[3rem];
+    @apply max-w-[30ch];
+    @apply lg:text-[4rem];
     @apply font-normal;
+    @apply break-normal;
+    @apply leading-[1.2];
   }
   h2 {
     @apply text-[2rem];
-    @apply mb-16;
     @apply font-bold;
   }
   h3 {
@@ -122,6 +125,7 @@ html {
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
+  @apply text-white;
   font-family: "Poppins", sans-serif;
 }
 
