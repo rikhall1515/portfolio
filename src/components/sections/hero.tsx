@@ -15,9 +15,7 @@ export default component$(() => {
             aria-label="I'm Rikard Hallberg, Fullstack Developer, Obsessed with performance and accessibility."
           >
             <span class="font-bold text-[1.5rem]">I'm Rikard Hallberg</span>
-            <span>
-              Fullstack Developer. Obsessed with performance and UI/UX.
-            </span>
+            <span>Fullstack developer dedicated to performance and UI/UX.</span>
           </h1>
           <p class="font-regular text-[2rem]">
             Computer science graduate from{" "}
