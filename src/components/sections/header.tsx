@@ -1,8 +1,9 @@
 import { component$ } from "@builder.io/qwik";
 import Button, { ButtonVariant } from "~/components/button";
+import Link from "~/components/link";
 export default component$(() => {
   return (
-    <header class="py-8 fixed top-0 left-0 w-full bg-white">
+    <header class="py-8 fixed top-0 left-0 z-10 bg-secondary_400 w-full">
       <div class="max-w-[120rem] m-auto px-32 flex justify-between">
         <a href="#introduction" aria-label="Website logo, jumps to top of page">
           <svg
@@ -44,16 +45,12 @@ export default component$(() => {
           </svg>
         </a>
         <nav class="flex items-center" aria-label="In-page jump links">
-          <ul class="flex text-[1.25rem]">
+          <ul class="text-[1.25rem] flex items-center font-medium">
             <li>
-              <a class="font-medium" href="#projects">
-                Projects
-              </a>
+              <Link text="Projects" href="#projects" isNav={true} />
             </li>
-            <li class="ml-6">
-              <a class="font-medium" href="#contact">
-                Contact
-              </a>
+            <li class="ml-6 font-medium">
+              <Link text="Contact" href="#contact" isNav={true} />
             </li>
             <li class="ml-6">
               <Button

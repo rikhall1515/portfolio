@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import Button, { ButtonVariant } from "~/components/button";
+import Link from "~/components/link";
 export default component$(() => {
   return (
     <section
@@ -19,7 +20,8 @@ export default component$(() => {
             </span>
           </h1>
           <p class="font-regular text-[2rem]">
-            Computer science graduate from <a href="https://mdu.se">MDU</a>
+            Computer science graduate from{" "}
+            <Link text="MDU" href="https://mdu.se" />
           </p>
         </div>
         <Button

@@ -6,9 +6,9 @@ interface LinkProps {
 }
 const commonStyles = [
   "inline-block relative",
-  "after:content-[''] after:block after:w-0 after:h-[0.125rem] after:relative after:bottom-[-0.5rem] after:bg-primary after:opacity-50",
+  "after:content-[''] after:block after:w-0 after:h-[0.25rem] after:relative after:bottom-[-0.25rem] after:bg-primary after:opacity-50",
   "hover:after:w-full focus:after:w-full hover:text-primary",
-].join("");
+].join(" ");
 function getLinkStyles(isNav: boolean) {
   if (isNav) {
     return [
