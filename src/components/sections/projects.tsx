@@ -45,7 +45,7 @@ export default component$(() => {
               Icon={true}
               text="GitHub"
               variant={ButtonVariant.Outlined}
-              href="https://github.com"
+              href="https://github.com/rikhall1515/portfolio"
             >
               <svg
                 class="w-6 h-6"
