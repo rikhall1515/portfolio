@@ -173,7 +173,7 @@ export default component$(() => {
                   <li class="w-fit">
                     <Button
                       Icon={false}
-                      text="Resume"
+                      text="Resumé"
                       variant={ButtonVariant.Outlined}
                       href="/Rikard_Hallberg_CV.pdf"
                       isNavSidebar={true}
