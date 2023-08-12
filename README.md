@@ -7,4 +7,4 @@
 ![How the design was translated into code](https://github.com/rikhall1515/portfolio/blob/main/TranslatingCSS.webp?raw=true)
 ![How the website was implemented, showing performance indicators](https://github.com/rikhall1515/portfolio/blob/main/MakeItQwik.webp?raw=true)
 ![How the website was tested for accessibility](https://github.com/rikhall1515/portfolio/blob/main/A11yTesting.webp?raw=true)
-![Overview of logo along with some information about Rikard Hallberg](https://github.com/rikhall1515/portfolio/blob/main/UISandwichBottom.webp?raw=true)
+![Overview of logo along with some information about Rikard Hallberg](https://github.com/rikhall1515/portfolio/blob/main/Bottom.webp?raw=true)
