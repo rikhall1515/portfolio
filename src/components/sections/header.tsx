@@ -82,7 +82,6 @@ export default component$(() => {
             href="#introduction"
             aria-label="Website logo, jumps to top of page"
             class={sidebarMenuExpanded.value ? "z-30 hidden" : "z-30"}
-            id="mainLogo"
             ref={mainLogoRef}
           >
             <ImgMainLogo alt="Website" />
@@ -91,7 +90,6 @@ export default component$(() => {
             href="#introduction"
             aria-label="Website logo, jumps to top of page"
             class={sidebarMenuExpanded.value ? "z-30" : "z-30 hidden"}
-            id="mainLogo"
             ref={mainLogoRef}
             onClick$={toggle}
           >
