@@ -22,7 +22,7 @@ export default component$(() => {
             <span class="font-bold text-[1.125rem] lg:text-[1.5rem]">
               I'm Rikard Hallberg
             </span>
-            <span>Fullstack developer dedicated to performance and UI/UX.</span>
+            <span>Fullstack developer dedicated to performance and design.</span>
           </h1>
           <p class="font-regular text-[1.25rem] lg:text-[2rem]">
             Computer science graduate from{" "}
