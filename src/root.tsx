@@ -6,6 +6,7 @@ import {
   useContextProvider,
   useSignal,
   createContextId,
+  useServerData,
 } from "@builder.io/qwik";
 import {
   QwikCityProvider,
@@ -24,6 +25,8 @@ export default component$(() => {
    *
    * Dont remove the `<head>` and `<body>` elements.
    */
+  const nonce = useServerData<string | undefined>("nonce");
+
   const sidebarMenuExpanded = useSignal(false);
   useContextProvider(MenuContext, sidebarMenuExpanded);
   useStyles$(styles);
@@ -46,7 +49,7 @@ export default component$(() => {
         }
       >
         <RouterOutlet />
-        <ServiceWorkerRegister />
+        <ServiceWorkerRegister nonce={nonce} />
       </body>
     </QwikCityProvider>
   );
