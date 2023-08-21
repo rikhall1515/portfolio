@@ -4,7 +4,6 @@ import {
   useContext,
   useContextProvider,
   useSignal,
-  type QwikMouseEvent,
 } from "@builder.io/qwik";
 import Button, { ButtonVariant } from "~/components/button";
 import Link from "~/components/link";
@@ -22,8 +21,7 @@ export default component$(() => {
   useContextProvider(mainMenuBtnContext, mainMenuBtnRef);
 
   const sidebarMenuExpanded = useContext(MenuContext);
-  const toggle = $((e: QwikMouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.stopPropagation();
+  const toggle = $(() => {
     sidebarMenuExpanded.value = !sidebarMenuExpanded.value;
   });
   const toggleIfOpen = $(() => {
@@ -38,7 +36,6 @@ export default component$(() => {
       <header
         ref={headerRef}
         class="w-full z-10 transition-[background-color,box-shadow] !pointer-events-auto !select-auto !filter-none"
-        onClick$={toggleIfOpen}
         document:onLoad$={() => {
           initialNavMenuCoords.value =
             1 * parseFloat(getComputedStyle(document.documentElement).fontSize);
