@@ -13,7 +13,7 @@ export default component$(() => {
           <h2 class="mb-[--subsection-y-spacing]">Who am I?</h2>
           <ImgRikHallPhoto
             class="w-full sm:h-64 md:h-auto md:max-w-full lg:max-w-[40rem] rounded-lg object-cover mb-6"
-            alt="A picture of me in business casual attire, out in nature."
+            alt="Rikard Hallberg in business casual attire, out in nature"
           />
           <p class="font-atkinson leading-normal max-w-[60ch]">
             Hi! My name is Rikard Hallberg. I love designing applications in

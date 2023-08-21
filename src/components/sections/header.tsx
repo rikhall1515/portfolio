@@ -1,10 +1,10 @@
 import {
   component$,
-  useVisibleTask$,
   $,
   useContext,
   useContextProvider,
   useSignal,
+  type QwikMouseEvent,
 } from "@builder.io/qwik";
 import Button, { ButtonVariant } from "~/components/button";
 import Link from "~/components/link";
@@ -22,36 +22,23 @@ export default component$(() => {
   useContextProvider(mainMenuBtnContext, mainMenuBtnRef);
 
   const sidebarMenuExpanded = useContext(MenuContext);
-  const toggle = $(
-    () => (sidebarMenuExpanded.value = !sidebarMenuExpanded.value)
-  );
-  const initialNavMenuCoords = useSignal(0);
-  //This code could probably be optimized, need to read up on qwik docs
-  useVisibleTask$(() => {
-    const introductionSection = document.getElementById("introduction");
-    const header = document.querySelector("header");
-
-    //Changing color of header when intersecting
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) {
-            header?.classList.add("atProjects");
-          } else {
-            header?.classList.remove("atProjects");
-          }
-        });
-      },
-      { rootMargin: "0px 0px 0px 0px", threshold: 0.4 }
-    );
-    observer.observe(introductionSection!);
+  const toggle = $((e: QwikMouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.stopPropagation();
+    sidebarMenuExpanded.value = !sidebarMenuExpanded.value;
   });
+  const toggleIfOpen = $(() => {
+    if (sidebarMenuExpanded.value) {
+      sidebarMenuExpanded.value = !sidebarMenuExpanded.value;
+    }
+  });
+  const initialNavMenuCoords = useSignal(0);
   return (
     <>
       <div aria-hidden="true" ref={spaceOffsetRef}></div>
       <header
         ref={headerRef}
         class="w-full z-10 transition-[background-color,box-shadow] !pointer-events-auto !select-auto !filter-none"
+        onClick$={toggleIfOpen}
         document:onLoad$={() => {
           initialNavMenuCoords.value =
             1 * parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -61,6 +48,20 @@ export default component$(() => {
             headerRef.value!.classList.add("stickyNav");
             spaceOffsetRef.value!.classList.add("takeSpace");
           }
+          const introductionSection = document.getElementById("introduction");
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (!e.isIntersecting) {
+                  headerRef.value!.classList.add("atProjects");
+                } else {
+                  headerRef.value!.classList.remove("atProjects");
+                }
+              });
+            },
+            { rootMargin: "-128px 0px 0px 0px" }
+          );
+          observer.observe(introductionSection!);
         }}
         document:onScroll$={() => {
           if (window.scrollY > initialNavMenuCoords.value) {
@@ -81,19 +82,11 @@ export default component$(() => {
           <a
             href="#introduction"
             aria-label="Website logo, jumps to top of page"
-            class={sidebarMenuExpanded.value ? "z-30 hidden" : "z-30"}
+            class="z-30"
             ref={mainLogoRef}
+            onClick$={toggleIfOpen}
           >
-            <ImgMainLogo alt="Website" />
-          </a>
-          <a
-            href="#introduction"
-            aria-label="Website logo, jumps to top of page"
-            class={sidebarMenuExpanded.value ? "z-30" : "z-30 hidden"}
-            ref={mainLogoRef}
-            onClick$={toggle}
-          >
-            <ImgMainLogo alt="Website" />
+            <ImgMainLogo alt="Website logo" id="websiteLogo" />
           </a>
           <nav
             class="hidden lg:block items-center z-20"
@@ -148,7 +141,6 @@ export default component$(() => {
               }
               aria-label="In-page jump links"
               aria-hidden={sidebarMenuExpanded.value}
-              tabIndex={sidebarMenuExpanded.value ? 1 : -1}
             >
               <nav aria-label="In-page jump links" ref={sidebarNavRef}>
                 <ul class="text-[1.25rem] font-medium flex flex-col justify-center items-center gap-6">
