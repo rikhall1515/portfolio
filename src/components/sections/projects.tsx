@@ -21,10 +21,12 @@ export default component$(() => {
           class="flex flex-col lg:flex-row-reverse rounded-lg w-full lg:min-w-[32rem] gap-16"
           aria-label="Portfolio website"
         >
-          <ImgThumbnail
-            class="max-w-full min-w-0"
-            alt="How the end-result of the project looks."
-          />
+          <a href="https://github.com/rikhall1515/portfolio">
+            <ImgThumbnail
+              class="max-w-full min-w-0"
+              alt="How the end-result of the project looks."
+            />
+          </a>
           <div class="flex flex-col gap-8 lg:min-w-[20rem] lg:place-self-end">
             <h3>Portfolio website</h3>
             <ul
