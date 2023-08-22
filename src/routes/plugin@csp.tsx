@@ -10,15 +10,14 @@ export const onRequest: RequestHandler = (event) => {
     `default-src 'self'`,
     `font-src 'self'`,
     `img-src 'self' data: https: blob:`,
-    `script-src 'self' 'strict-dynamic' 'nonce-${nonce}'`,
-    `connect-src cloudflareinsights.com`,
+    `script-src 'self' 'unsafe-inline' https: 'strict-dynamic' 'nonce-${nonce}'`,
     `style-src 'self' 'unsafe-inline'`,
     `frame-src 'self' 'nonce-${nonce}'`,
     `object-src 'none'`,
     `base-uri 'self'`,
   ];
 
-  const sts = [`max-age 30`, `includeSubDomains`, `preload`];
+  const sts = [`max-age=30`, `includeSubDomains`, `preload`];
 
   event.headers.set("Content-Security-Policy", csp.join("; "));
   event.headers.set("Strict-Transport-Security", sts.join("; "));
