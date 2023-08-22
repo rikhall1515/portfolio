@@ -137,7 +137,7 @@ export default component$(() => {
                   : "translate-x-[100vw] visible-[hidden]")
               }
               aria-label="In-page jump links"
-              aria-hidden={sidebarMenuExpanded.value}
+              aria-hidden={!sidebarMenuExpanded.value}
             >
               <nav aria-label="In-page jump links" ref={sidebarNavRef}>
                 <ul class="text-[1.25rem] font-medium flex flex-col justify-center items-center gap-6">
