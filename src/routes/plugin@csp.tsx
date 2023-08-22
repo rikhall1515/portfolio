@@ -10,7 +10,7 @@ export const onRequest: RequestHandler = (event) => {
     `default-src 'self'`,
     `font-src 'self'`,
     `img-src 'self' data: https: blob:`,
-    `script-src 'self' 'unsafe-inline' https: 'strict-dynamic' 'nonce-${nonce}'`,
+    `script-src 'self' 'unsafe-inline' https: 'nonce-${nonce}' *.cloudflareinsights.com https://rikardhallberg.com/cdn-cgi/*`,
     `style-src 'self' 'unsafe-inline'`,
     `frame-src 'self' 'nonce-${nonce}'`,
     `object-src 'none'`,
