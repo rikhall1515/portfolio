@@ -56,7 +56,7 @@ export default component$(() => {
                 }
               });
             },
-            { rootMargin: "-128px 0px 0px 0px" }
+            { rootMargin: "-168px 0px 0px 0px" }
           );
           observer.observe(introductionSection!);
         }}
