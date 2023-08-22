@@ -14,8 +14,9 @@ function checkIfHeaderInactive() {
 }
 
 function checkIfHeaderIsActive() {
-  cy.get("header").should("have.class", "stickyNav");
-  cy.get("header").should("have.class", "atProjects");
+  cy.get("header")
+    .should("have.class", "stickyNav")
+    .and("have.class", "atProjects");
   cy.get("div[aria-hidden='true']").should("have.class", "takeSpace");
 }
 describe("App end-to-end test", () => {
@@ -61,15 +62,15 @@ describe("App end-to-end test", () => {
           .and("have.attr", "aria-label", "Close menu");
         cy.get("aside").should("have.attr", "aria-hidden", "false");
 
-        cy.get("aside > a[href='#projects'").click();
-
+        cy.get("aside > nav > ul > li > a[href='#projects']").click();
+        cy.wait(500);
         checkIfHeaderIsActive();
 
         cy.get("aside").should("have.attr", "aria-hidden", "true");
         cy.get("button").click();
 
-        cy.get("aside > a[href='#contact'").click();
-
+        cy.get("aside > nav > ul > li > a[href='#contact']").click();
+        cy.wait(500);
         checkIfHeaderIsActive();
 
         cy.get("aside").should("have.attr", "aria-hidden", "true");
