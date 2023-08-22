@@ -11,7 +11,6 @@
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.server": "vite build -c adapters/cloudflare-pages/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "coverage": "vitest run --coverage",
     "cypress.open": "cypress open --component",
     "cypress.run": "cypress run --component",
     "deploy": "wrangler pages publish ./dist",
@@ -23,8 +22,6 @@
     "preview": "qwik build preview && vite preview --open",
     "serve": "wrangler pages dev ./dist",
     "start": "vite --open --mode ssr",
-    "test": "vitest --run",
-    "test.watch": "vitest",
     "qwik": "qwik"
   },
   "devDependencies": {
