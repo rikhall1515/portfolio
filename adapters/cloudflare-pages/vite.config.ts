@@ -12,7 +12,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [cloudflarePagesAdapter({
       ssg: {
-        include: ['/*'],
+        include: ['/*', '/Rikard_Hallberg_CV.pdf'],
         origin: 'https://rikardhallberg.com',
         sitemapOutFile: 'sitemap.xml',
       }
