@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
  
-Sitemap: https://rikardhallberg.com/sitemap.xml
+Sitemap: https://rikardhallberg.com/custom-sitemap.xml
