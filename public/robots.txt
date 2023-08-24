@@ -1,1 +1,4 @@
-sitemap: https://rikardhallberg.com/sitemap.xml
+User-agent: *
+Allow: /
+ 
+Sitemap: https://<YOUR_HOSTNAME>/sitemap.xml
