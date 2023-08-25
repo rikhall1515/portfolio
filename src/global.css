@@ -204,6 +204,7 @@
   transform: rotate(-135deg);
 }
 
+/*Credit to Deepak K Vijayan https://codepen.io/2xsamurai/pen/WwmjKQ */
 @keyframes scroll {
   0% {
     opacity: 0;
@@ -219,7 +220,6 @@
     opacity: 0;
   }
 }
-/*Credit to Deepak K Vijayan https://codepen.io/2xsamurai/pen/WwmjKQ */
 .scroller {
   animation-name: scroll;
   animation-duration: 2s;

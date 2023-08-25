@@ -5,11 +5,12 @@ import {
   useContextProvider,
   useSignal,
 } from "@builder.io/qwik";
-import Button, { ButtonVariant } from "~/components/button";
-import Link from "~/components/link";
 import ImgMainLogo from "~/components/icons/mainLogo.svg?jsx";
 import { mainMenuBtnContext } from "~/routes/layout";
 import { MenuContext } from "~/root";
+import ButtonResume from "~/components/buttons/buttonResume";
+import NavLink from "~/components/links/navLink";
+import NavSidebar from "~/components/links/navSidebar";
 
 export default component$(() => {
   const headerRef = useSignal<Element>();
@@ -91,18 +92,13 @@ export default component$(() => {
           >
             <ul class="text-[1.25rem] flex items-center font-medium">
               <li>
-                <Link text="Projects" href="#projects" isNav={true} />
+                <NavLink text="Projects" href="#projects" />
               </li>
               <li class="ml-6 font-medium">
-                <Link text="Contact" href="#contact" isNav={true} />
+                <NavLink text="Contact" href="#contact" />
               </li>
               <li class="ml-6">
-                <Button
-                  Icon={false}
-                  text="Resumé"
-                  href="/Rikard_Hallberg_CV.pdf"
-                  variant={ButtonVariant.Outlined}
-                />
+                <ButtonResume />
               </li>
             </ul>
           </nav>
@@ -142,29 +138,13 @@ export default component$(() => {
               <nav aria-label="In-page jump links" ref={sidebarNavRef}>
                 <ul class="text-[1.25rem] font-medium flex flex-col justify-center items-center gap-6">
                   <li class="w-fit" id="projectsLink">
-                    <Link
-                      text="Projects"
-                      href="#projects"
-                      isNav={false}
-                      isNavSidebar={true}
-                    />
+                    <NavSidebar text="Projects" href="#projects" />
                   </li>
                   <li class="w-fit" id="contactLink">
-                    <Link
-                      text="Contact"
-                      href="#contact"
-                      isNav={false}
-                      isNavSidebar={true}
-                    />
+                    <NavSidebar text="Contact" href="#contact" />
                   </li>
                   <li class="w-fit">
-                    <Button
-                      Icon={false}
-                      text="Resumé"
-                      variant={ButtonVariant.Outlined}
-                      href="/Rikard_Hallberg_CV.pdf"
-                      isNavSidebar={true}
-                    />
+                    <ButtonResume isNavSidebar={true} />
                   </li>
                 </ul>
               </nav>

@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
-import Button, { ButtonVariant } from "~/components/button";
-import Link from "~/components/link";
+import ButtonMain from "~/components/buttons/buttonMain";
+import InpageLink from "~/components/links/inpageLink";
 export default component$(() => {
   return (
     <section
@@ -22,45 +22,19 @@ export default component$(() => {
             <span class="font-bold text-[1.125rem] lg:text-[1.5rem]">
               I'm Rikard Hallberg
             </span>
-            <span>Fullstack developer dedicated to performance and design.</span>
+            <span>
+              Fullstack developer dedicated to performance and design.
+            </span>
           </h1>
           <p class="font-regular text-[1.25rem] lg:text-[2rem]">
             Computer science graduate from{" "}
-            <Link
+            <InpageLink
               text="MDU"
               href="https://www.mdu.se/utbildning/program/datavetenskapliga-programmet"
             />
           </p>
         </div>
-        <Button
-          Icon={true}
-          text="Get in touch"
-          variant={ButtonVariant.Fill}
-          href="mailto:r15.hallberg@gmail.com"
-        >
-          <svg
-            width="36"
-            height="24"
-            viewBox="0 0 36 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            q:slot="Icon"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M3 0C1.34315 0 0 1.34315 0 3V6L18 9L36 6V3C36 1.34315 34.6569 0 33 0H3Z"
-              fill="#090413"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M22.5 11.25L18 12L13.5 11.25L0 18V21C0 22.6569 1.34315 24 3 24H33C34.6569 24 36 22.6569 36 21V18L22.5 11.25ZM36 15V9L27 10.5L36 15ZM0 9L9 10.5L0 15V9Z"
-              fill="#090413"
-            />
-          </svg>
-        </Button>
+        <ButtonMain text="Get in touch" />
       </div>
     </section>
   );

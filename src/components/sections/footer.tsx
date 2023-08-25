@@ -1,5 +1,5 @@
 import { component$, useContext, $ } from "@builder.io/qwik";
-import Link from "~/components/link";
+import InpageLink from "../links/inpageLink";
 import { MenuContext } from "~/root";
 export default component$(() => {
   const sidebarMenuExpanded = useContext(MenuContext);
@@ -19,10 +19,10 @@ export default component$(() => {
       <div class="max-w-[120rem] m-auto page-outer-spacing">
         <p class="font-atkinson max-w-[60ch]">
           This portfolio was meticulously designed with Figma and built using
-          Qwik, Typescript, and TailwindCSS.{" "}
-          <Link
+          Qwik, Typescript, and TailwindCSS. Tested with NVDA and Cypress.{" "}
+          <InpageLink
             text="Look at the portfolio GitHub"
-            href="https://github.com/rikhall1515"
+            href="https://github.com/rikhall1515/portfolio"
           />
         </p>
       </div>
