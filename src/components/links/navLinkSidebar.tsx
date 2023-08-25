@@ -1,4 +1,4 @@
-import { component$, useContext, $ } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
 import { MenuContext } from "~/root";
 interface LinkProps {
   text: string;
@@ -6,10 +6,10 @@ interface LinkProps {
 }
 
 export default component$<LinkProps>(({ text, href }) => {
-  const sidebarMenuExpanded = useContext(MenuContext);
-  const toggle = $(
-    () => (sidebarMenuExpanded.value = !sidebarMenuExpanded.value)
-  );
+  const sidebar = useContext(MenuContext);
+  // const toggle = $(
+  //   () => (sidebar.expanded = !sidebarMenuExpanded.value)
+  // );
   return (
     <a
       class={`
@@ -19,8 +19,8 @@ export default component$<LinkProps>(({ text, href }) => {
         isNav text-white active:text-primary active:after:w-full
       `}
       href={href}
-      onClick$={toggle}
-      tabIndex={sidebarMenuExpanded.value ? 0 : -1}
+      onClick$={() => sidebar.toggle()}
+      tabIndex={sidebar.expanded ? 0 : -1}
     >
       {text}
     </a>

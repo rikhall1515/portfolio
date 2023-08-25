@@ -2,7 +2,7 @@ import {
   component$,
   Slot,
   useContext,
-  $,
+  // $,
   createContextId,
   type Signal,
   useContextProvider,
@@ -36,12 +36,7 @@ export const useServerTimeLoader = routeLoader$(() => {
 
 export default component$(() => {
   const emptyElm = useSignal<HTMLElement>();
-  const sidebarMenuExpanded = useContext(MenuContext);
-  const toggleIfBlurred = $(() => {
-    if (sidebarMenuExpanded.value) {
-      sidebarMenuExpanded.value = !sidebarMenuExpanded.value;
-    }
-  });
+  const sidebar = useContext(MenuContext);
   useContextProvider(mainMenuBtnContext, emptyElm);
   return (
     <>
@@ -55,7 +50,11 @@ export default component$(() => {
         Skip to Content
       </a>
       <Header />
-      <main id="content" class="transition-all" onClick$={toggleIfBlurred}>
+      <main
+        id="content"
+        class="transition-all"
+        onClick$={() => sidebar.toggleIfOpen()}
+      >
         <Slot />
       </main>
       <Footer />

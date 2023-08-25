@@ -2,11 +2,12 @@ import {
   component$,
   useStyles$,
   useTask$,
-  type Signal,
   useContextProvider,
-  useSignal,
   createContextId,
   useServerData,
+  useStore,
+  $,
+  type QRL,
 } from "@builder.io/qwik";
 import {
   QwikCityProvider,
@@ -16,22 +17,32 @@ import {
 import { RouterHead } from "./components/router-head/router-head";
 import styles from "./global.css?inline";
 
-export const MenuContext = createContextId<Signal<boolean>>("menuState");
+export interface SidebarStore {
+  expanded: boolean;
+  toggle: QRL<(this: SidebarStore) => void>;
+  toggleIfOpen: QRL<(this: SidebarStore) => void>;
+}
+
+export const MenuContext = createContextId<SidebarStore>("menuState");
 
 export default component$(() => {
-  /**
-   * The root of a QwikCity site always start with the <QwikCityProvider> component,
-   * immediately followed by the document's <head> and <body>.
-   *
-   * Dont remove the `<head>` and `<body>` elements.
-   */
   const nonce = useServerData<string | undefined>("nonce");
 
-  const sidebarMenuExpanded = useSignal(false);
-  useContextProvider(MenuContext, sidebarMenuExpanded);
+  const sidebar = useStore<SidebarStore>({
+    expanded: false,
+    toggle: $(function (this: SidebarStore) {
+      this.expanded = !this.expanded;
+    }),
+    toggleIfOpen: $(function (this: SidebarStore) {
+      if (this.expanded) {
+        this.expanded = !this.expanded;
+      }
+    }),
+  });
+  useContextProvider(MenuContext, sidebar);
   useStyles$(styles);
   useTask$(({ track }) => {
-    track(() => sidebarMenuExpanded.value);
+    track(() => sidebar.expanded);
   });
   return (
     <QwikCityProvider>
@@ -43,7 +54,7 @@ export default component$(() => {
       <body
         lang="en"
         class={
-          sidebarMenuExpanded.value
+          sidebar.expanded
             ? "customBlur overflow-hidden relative bg-secondary_400"
             : "relative bg-secondary_400"
         }

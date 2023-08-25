@@ -12,7 +12,7 @@ interface ButtonProps {
 }
 
 export default component$<ButtonProps>(({ isNavSidebar = false }) => {
-  const sidebarMenuExpanded = useContext(MenuContext);
+  const sidebar = useContext(MenuContext);
   const mainMenuRef = useContext(mainMenuBtnContext);
   let attrs = {};
   attrs = {
@@ -22,7 +22,7 @@ export default component$<ButtonProps>(({ isNavSidebar = false }) => {
   if (isNavSidebar) {
     attrs = {
       ...attrs,
-      tabIndex: sidebarMenuExpanded.value ? 0 : -1,
+      tabIndex: sidebar.expanded ? 0 : -1,
       "preventdefault:keydown": true,
       onKeyDown$: $(
         (e: QwikKeyboardEvent<HTMLAnchorElement>) =>

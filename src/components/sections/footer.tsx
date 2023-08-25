@@ -1,20 +1,17 @@
-import { component$, useContext, $ } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
 import InpageLink from "../links/inpageLink";
 import { MenuContext } from "~/root";
 export default component$(() => {
-  const sidebarMenuExpanded = useContext(MenuContext);
-  const toggleIfBlurred = $(() => {
-    sidebarMenuExpanded.value = !sidebarMenuExpanded.value;
-  });
+  const sidebar = useContext(MenuContext);
   return (
     <footer
       class={
-        sidebarMenuExpanded.value
+        sidebar.expanded
           ? "py-[--section-y-spacing] bg-gradient-to-b from-secondary_350 to-secondary_400 blur "
           : "py-[--section-y-spacing] bg-gradient-to-b from-secondary_350 to-secondary_400"
       }
       aria-label="About the website"
-      onClick$={toggleIfBlurred}
+      onClick$={() => sidebar.toggleIfOpen()}
     >
       <div class="max-w-[120rem] m-auto page-outer-spacing">
         <p class="font-atkinson max-w-[60ch]">

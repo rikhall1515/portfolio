@@ -1,6 +1,5 @@
 import {
   component$,
-  $,
   useContext,
   useContextProvider,
   useSignal,
@@ -10,7 +9,7 @@ import { mainMenuBtnContext } from "~/routes/layout";
 import { MenuContext } from "~/root";
 import ButtonResume from "~/components/buttons/buttonResume";
 import NavLink from "~/components/links/navLink";
-import NavSidebar from "~/components/links/navSidebar";
+import NavLinkSidebar from "~/components/links/navLinkSidebar";
 
 export default component$(() => {
   const headerRef = useSignal<Element>();
@@ -21,15 +20,7 @@ export default component$(() => {
   const sidebarNavRef = useSignal<Element>();
   useContextProvider(mainMenuBtnContext, mainMenuBtnRef);
 
-  const sidebarMenuExpanded = useContext(MenuContext);
-  const toggle = $(() => {
-    sidebarMenuExpanded.value = !sidebarMenuExpanded.value;
-  });
-  const toggleIfOpen = $(() => {
-    if (sidebarMenuExpanded.value) {
-      sidebarMenuExpanded.value = !sidebarMenuExpanded.value;
-    }
-  });
+  const sidebar = useContext(MenuContext);
   const initialNavMenuCoords = useSignal(0);
   return (
     <>
@@ -82,7 +73,7 @@ export default component$(() => {
             aria-label="Website logo, jumps to top of page"
             class="z-30"
             ref={mainLogoRef}
-            onClick$={toggleIfOpen}
+            onClick$={() => sidebar.toggleIfOpen()}
           >
             <ImgMainLogo alt="Website logo" id="websiteLogo" />
           </a>
@@ -94,7 +85,7 @@ export default component$(() => {
               <li>
                 <NavLink text="Projects" href="#projects" />
               </li>
-              <li class="ml-6 font-medium">
+              <li class="ml-6">
                 <NavLink text="Contact" href="#contact" />
               </li>
               <li class="ml-6">
@@ -104,13 +95,11 @@ export default component$(() => {
           </nav>
           <div class="block lg:hidden">
             <button
-              aria-expanded={sidebarMenuExpanded.value}
-              aria-label={
-                sidebarMenuExpanded.value ? "Close menu" : "Open menu"
-              }
-              onClick$={toggle}
+              aria-expanded={sidebar.expanded}
+              aria-label={sidebar.expanded ? "Close menu" : "Open menu"}
+              onClick$={() => sidebar.toggle()}
               class={
-                sidebarMenuExpanded.value
+                sidebar.expanded
                   ? "z-30 relative menuBtn opened"
                   : "z-30 relative menuBtn"
               }
@@ -128,20 +117,20 @@ export default component$(() => {
                 "flex justify-center items-center " +
                 "outline-none " +
                 "bg-secondary_900 " +
-                (sidebarMenuExpanded.value
+                (sidebar.expanded
                   ? "translate-x-[0vw] visible"
                   : "translate-x-[100vw] visible-[hidden]")
               }
               aria-label="In-page jump links"
-              aria-hidden={!sidebarMenuExpanded.value}
+              aria-hidden={!sidebar.expanded}
             >
               <nav aria-label="In-page jump links" ref={sidebarNavRef}>
                 <ul class="text-[1.25rem] font-medium flex flex-col justify-center items-center gap-6">
                   <li class="w-fit" id="projectsLink">
-                    <NavSidebar text="Projects" href="#projects" />
+                    <NavLinkSidebar text="Projects" href="#projects" />
                   </li>
                   <li class="w-fit" id="contactLink">
-                    <NavSidebar text="Contact" href="#contact" />
+                    <NavLinkSidebar text="Contact" href="#contact" />
                   </li>
                   <li class="w-fit">
                     <ButtonResume isNavSidebar={true} />
