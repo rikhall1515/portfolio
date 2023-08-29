@@ -15,7 +15,6 @@ export default component$<LinkProps>(({ text, href }) => {
       `}
       href={href}
       rel="noopener noreferrer"
-      target="_blank"
     >
       {text}
     </a>

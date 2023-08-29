@@ -19,7 +19,6 @@ export default component$(() => {
         button
       `}
       rel="noopener noreferrer"
-      target="_blank"
     >
       <svg
         class="w-6 h-6"

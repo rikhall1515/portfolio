@@ -99,6 +99,24 @@
   @apply px-2 sm:px-[--page-x-spacing];
 }
 
+/*Credit to Deepak K Vijayan https://codepen.io/2xsamurai/pen/WwmjKQ */
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    -moz-opacity: 0;
+    -webkit-opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+/*End of credit */
+
 @media (prefers-reduced-motion: no-preference) {
   a,
   button {
@@ -115,6 +133,20 @@
   }
   aside {
     @apply transition-all ease-in-out;
+  }
+  /*Credit to Deepak K Vijayan https://codepen.io/2xsamurai/pen/WwmjKQ */
+  .scroller {
+    animation-name: scroll;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+    animation-iteration-count: infinite;
+  }
+  /*End of credit */
+  article > a > span {
+    @apply transition-all;
+  }
+  article > a::before {
+    @apply transition-opacity;
   }
 }
 
@@ -204,29 +236,6 @@
   transform: rotate(-135deg);
 }
 
-/*Credit to Deepak K Vijayan https://codepen.io/2xsamurai/pen/WwmjKQ */
-@keyframes scroll {
-  0% {
-    opacity: 0;
-    -moz-opacity: 0;
-    -webkit-opacity: 0;
-  }
-  10% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(1rem);
-    opacity: 0;
-  }
-}
-.scroller {
-  animation-name: scroll;
-  animation-duration: 2s;
-  animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
-  animation-iteration-count: infinite;
-}
-/*End of credit */
 html {
   line-height: 1;
   -webkit-text-size-adjust: 100%;

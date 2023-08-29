@@ -4,7 +4,6 @@ import {
   useContextProvider,
   useSignal,
 } from "@builder.io/qwik";
-import ImgMainLogo from "~/components/icons/mainLogo.svg?jsx";
 import { mainMenuBtnContext } from "~/routes/layout";
 import { MenuContext } from "~/root";
 import ButtonResume from "~/components/buttons/buttonResume";
@@ -75,7 +74,21 @@ export default component$(() => {
             ref={mainLogoRef}
             onClick$={() => sidebar.toggleIfOpen()}
           >
-            <ImgMainLogo alt="Website logo" id="websiteLogo" />
+            <svg
+              width="64"
+              height="64"
+              viewBox="0 0 64 64"
+              xmlns="http://www.w3.org/2000/svg"
+              id="websiteLogo"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 0H12H28C32.2435 0 36.3131 2.10714 39.3137 5.85787C42.3143 9.60859 44 14.6957 44 20C44 25.3043 42.3143 30.3914 39.3137 34.1421C36.3131 37.8929 32.2435 40 28 40L33.3333 48H41.3333L36 40H48L64 64H52L46.6667 56H38.6667L44 64H32L16 40H12V64H0V40V28V12V0ZM24 28C28.4183 28 32 24.4183 32 20C32 15.5817 28.4183 12 24 12H12V28H24Z"
+                fill="#EEEAF9"
+              />
+            </svg>
           </a>
           <nav
             class="hidden lg:block items-center z-20"

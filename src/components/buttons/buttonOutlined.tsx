@@ -32,7 +32,6 @@ export default component$<ButtonProps>(
         button
       `}
         rel="noopener noreferrer"
-        target="_blank"
       >
         <Slot name="Icon" />
         <span>{text}</span>

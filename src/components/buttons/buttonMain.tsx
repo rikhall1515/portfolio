@@ -30,13 +30,13 @@ export default component$<ButtonProps>(({ text, fill_container = false }) => {
        hover:before:opacity-0 focus:before:opacity-0
 
        text-secondary_900 fill-secondary_900
+       bg-white
        hover:text-white hover:bg-secondary_900 
        focus:text-white focus:bg-secondary_900 
        hover:border-primaryDarker hover:shadow-secondary_900 hover:gap-0
        focus:border-primaryDarker focus:shadow-secondary_900 focus:gap-0
       `}
       rel="noopener noreferrer"
-      target="_blank"
     >
       <svg
         width="36"

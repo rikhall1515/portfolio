@@ -23,11 +23,12 @@ export default component$(() => {
         >
           <a
             class="relative overflow-hidden 
-                   before:content-[''] before:absolute before:inset-0 before:opacity-0 before:transition-opacity before:z-[1] before:bg-secondary_900
+                   before:content-[''] before:absolute before:inset-0 before:opacity-0 before:z-[1] before:bg-secondary_900
                    hover:before:opacity-90
                    [&:hover>span]:opacity-100 [&:hover>span]:p-4
                    [&:focus>span]:opacity-100 [&:focus>span]:p-4"
             href="https://github.com/rikhall1515/portfolio"
+            rel="noopener noreferrer"
             aria-labelledby="portfolioProject"
           >
             <ImgThumbnail
@@ -36,9 +37,9 @@ export default component$(() => {
             />
             <span
               class="absolute translate-x-[-50%] translate-y-[-50%] top-1/2 left-1/2
-                         rounded-lg p-2 opacity-0 transition-all z-[2]
-                         text-secondary_900 text-center font-bold text-[1.25rem]
-                         bg-gradient-to-b from-primary to-primaryDarker
+                         rounded-lg p-2 opacity-0 z-[2]
+                         text-white text-center font-bold text-[1.25rem]
+                         bg-secondary_900
                          whitespace-nowrap"
               id="portfolioProject"
             >

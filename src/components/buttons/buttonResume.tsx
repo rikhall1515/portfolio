@@ -17,7 +17,6 @@ export default component$<ButtonProps>(({ isNavSidebar = false }) => {
   let attrs = {};
   attrs = {
     rel: "noopener noreferrer",
-    target: "_blank",
   };
   if (isNavSidebar) {
     attrs = {

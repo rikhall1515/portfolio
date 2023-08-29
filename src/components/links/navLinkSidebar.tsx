@@ -7,9 +7,6 @@ interface LinkProps {
 
 export default component$<LinkProps>(({ text, href }) => {
   const sidebar = useContext(MenuContext);
-  // const toggle = $(
-  //   () => (sidebar.expanded = !sidebarMenuExpanded.value)
-  // );
   return (
     <a
       class={`
