@@ -1,7 +1,6 @@
 import {
   component$,
   useStyles$,
-  useTask$,
   useContextProvider,
   createContextId,
   useServerData,
@@ -41,9 +40,6 @@ export default component$(() => {
   });
   useContextProvider(MenuContext, sidebar);
   useStyles$(styles);
-  useTask$(({ track }) => {
-    track(() => sidebar.expanded);
-  });
   return (
     <QwikCityProvider>
       <head>

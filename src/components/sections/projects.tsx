@@ -25,6 +25,8 @@ export default component$(() => {
             class="relative overflow-hidden 
                    before:content-[''] before:absolute before:inset-0 before:opacity-0 before:z-[1] before:bg-secondary_900
                    hover:before:opacity-90
+                   text-white
+                   
                    [&:hover>span]:opacity-100 [&:hover>span]:p-4
                    [&:focus>span]:opacity-100 [&:focus>span]:p-4"
             href="https://github.com/rikhall1515/portfolio"
