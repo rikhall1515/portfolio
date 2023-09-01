@@ -2,6 +2,7 @@ import {
   component$,
   useContext,
   useContextProvider,
+  type QwikKeyboardEvent,
   useSignal,
 } from "@builder.io/qwik";
 import { mainMenuBtnContext } from "~/routes/layout";
@@ -115,6 +116,9 @@ export default component$(() => {
                 sidebar.expanded
                   ? "z-30 relative menuBtn opened"
                   : "z-30 relative menuBtn"
+              }
+              onKeyDown$={(e: QwikKeyboardEvent<HTMLAnchorElement>) =>
+                e.which == 27 && sidebar.toggle()
               }
               ref={mainMenuBtnRef}
             >

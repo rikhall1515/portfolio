@@ -1,5 +1,10 @@
-import { component$, useContext } from "@builder.io/qwik";
+import {
+  component$,
+  useContext,
+  type QwikKeyboardEvent,
+} from "@builder.io/qwik";
 import { MenuContext } from "~/root";
+import { mainMenuBtnContext } from "~/routes/layout";
 interface LinkProps {
   text: string;
   href: string;
@@ -7,6 +12,7 @@ interface LinkProps {
 
 export default component$<LinkProps>(({ text, href }) => {
   const sidebar = useContext(MenuContext);
+  const mainMenuBtn = useContext(mainMenuBtnContext);
   return (
     <a
       class={`
@@ -18,6 +24,12 @@ export default component$<LinkProps>(({ text, href }) => {
       href={href}
       onClick$={() => sidebar.toggle()}
       tabIndex={sidebar.expanded ? 0 : -1}
+      onKeyDown$={(e: QwikKeyboardEvent<HTMLAnchorElement>) => {
+        if (e.which == 27) {
+          sidebar.toggle();
+          mainMenuBtn.value.focus();
+        }
+      }}
     >
       {text}
     </a>

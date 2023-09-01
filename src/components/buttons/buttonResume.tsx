@@ -23,10 +23,14 @@ export default component$<ButtonProps>(({ isNavSidebar = false }) => {
       ...attrs,
       tabIndex: sidebar.expanded ? 0 : -1,
       "preventdefault:keydown": true,
-      onKeyDown$: $(
-        (e: QwikKeyboardEvent<HTMLAnchorElement>) =>
-          e.which == 9 && mainMenuRef.value.focus()
-      ),
+      onKeyDown$: $((e: QwikKeyboardEvent<HTMLAnchorElement>) => {
+        if (e.which == 9) {
+          sidebar.expanded && mainMenuRef.value.focus();
+        } else if (e.which == 27) {
+          sidebar.toggle();
+          mainMenuRef.value.focus();
+        }
+      }),
     };
   }
 
