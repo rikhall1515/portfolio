@@ -17,7 +17,7 @@ export const onRequest: RequestHandler = (event) => {
     `base-uri 'self'`,
   ];
 
-  const sts = [`max-age=604800`, `includeSubDomains`, `preload`];
+  const sts = [`max-age=63072000`, `includeSubDomains`, `preload`];
 
   event.headers.set("Content-Security-Policy", csp.join("; "));
   event.headers.set("Strict-Transport-Security", sts.join("; "));
