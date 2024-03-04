@@ -14,7 +14,7 @@ export default component$(() => {
           <div class="w-1 h-2 rounded-[25%] bg-white scroller"></div>
         </div>
       </div>
-      <div class="max-w-[120rem] m-auto page-outer-spacing gap-16">
+      <div class="max-w-[120rem] m-auto page-outer-spacing gap-16 flex flex-col">
         <h2 id="projects_title">My best work</h2>
         <article
           class="flex flex-col lg:flex-row-reverse w-full justify-between lg:min-w-[32rem] gap-16"
